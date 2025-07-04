@@ -1,0 +1,134 @@
+.contact {
+  padding: 80px 40px;
+  background-color: #f7f7f7;
+  text-align: center;
+  color: #222;
+}
+
+.contact h2 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+  color: #0078ff;
+}
+
+.contact-intro,
+.contact-outro {
+  font-size: 1.05rem;
+  margin: 10px auto 30px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0078ff;
+  outline: none;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: #0078ff;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #005bb5;
+}
+
+.contact-links {
+  margin-top: 20px;
+}
+
+.icon-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.icon-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  font-size: 0.95rem;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.icon-links a:hover {
+  background-color: #0078ff;
+  color: white;
+}
+
+.icon-links i {
+  font-size: 1.2rem;
+}
+
+/* Dark Mode */
+.App.dark .contact {
+  background-color: #1f1f1f;
+  color: #f2f2f2;
+}
+
+.App.dark .contact h2 {
+  color: #90cdf4;
+}
+
+.App.dark .contact-form input,
+.App.dark .contact-form textarea {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  color: #eee;
+}
+
+.App.dark .contact-form input::placeholder,
+.App.dark .contact-form textarea::placeholder {
+  color: #bbb;
+}
+
+.App.dark .contact-form button {
+  background-color: #444;
+}
+
+.App.dark .contact-form button:hover {
+  background-color: #666;
+}
+
+.App.dark .icon-links a {
+  background-color: #2a2a2a;
+  color: #ccc;
+}
+
+.App.dark .icon-links a:hover {
+  background-color: #0078ff;
+  color: white;
+}

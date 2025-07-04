@@ -1,0 +1,173 @@
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #fff;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-brand a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0078ff;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-menu li a,
+.nav-menu li {
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-menu li:hover,
+.nav-menu a:hover {
+  color: #0078ff;
+  transform: translateY(-2px);
+}
+
+.nav-avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-left: 8px;
+  object-fit: cover;
+}
+
+/* Hamburger button */
+.hamburger-icon {
+  display: none;
+  font-size: 2rem;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
+  cursor: pointer;
+  color: #0078ff;
+}
+
+/* Sidebar for mobile */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100vh;
+  background: #fff;
+  padding: 20px;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
+  transition: right 0.4s ease;
+  z-index: 1050;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.sidebar-brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #0078ff;
+}
+
+.sidebar-header button {
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: #0078ff;
+  cursor: pointer;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 18px;
+}
+
+.sidebar-menu li a,
+.sidebar-menu li {
+  color: #333;
+  font-size: 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar-menu li:hover,
+.sidebar-menu a:hover {
+  color: #0078ff;
+  transform: translateX(5px);
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .navbar.desktop-only {
+    display: none;
+  }
+
+  .hamburger-icon {
+    display: block;
+  }
+}
+
+/* Dark mode styles */
+.App.dark .navbar {
+  background-color: #111;
+  color: #eee;
+  border-bottom: 1px solid #333;
+}
+
+.App.dark .nav-menu li a {
+  color: #ccc;
+}
+
+.App.dark .nav-menu li a:hover {
+  color: #90cdf4;
+}
+
+.App.dark .sidebar {
+  background-color: #111;
+  color: #eee;
+}
+
+.App.dark .sidebar-menu li a {
+  color: #ccc;
+}
+
+.App.dark .sidebar-menu li a:hover {
+  color: #90cdf4;
+}
+
+.App.dark .sidebar-header button {
+  color: #90cdf4;
+}
+
+.App.dark .sidebar-brand {
+  color: #90cdf4;
+}

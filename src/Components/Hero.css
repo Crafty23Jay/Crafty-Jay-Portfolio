@@ -1,0 +1,92 @@
+ /* src/styles/Hero.css */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg,#0078ff, #8bb5dd, #011e6e);
+  background-size: 600% 600%;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+  animation: fadeIn 1s ease-in-out, backgroundAnime 15s ease infinite;
+  /* #00c6ff */
+  /* transition: background-color 3s ease; */
+}
+
+.hero-content {
+  animation: slideUp 1.7s ease-in;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 28px;
+  font-family: montserrat;
+}
+
+.hero-btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #0078ff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.hero-btn:hover {
+  background-color: #0078ff;
+  color: #fff;
+}
+
+/* Animations */
+
+@keyframes backgroundAnime {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(70px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Dark mode */
+.App.dark .hero {
+  background: linear-gradient(135deg, #1e1e1e, #333);
+  color: #f2f2f2;
+}
+
+.App.dark .hero-btn {
+  background-color: #f2f2f2;
+  color: #1e1e1e;
+}
+
+.App.dark .hero-btn:hover {
+  background-color: #0078ff;
+  color: #fff;
+}

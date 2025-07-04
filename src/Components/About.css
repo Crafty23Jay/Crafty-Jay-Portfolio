@@ -1,0 +1,85 @@
+.about {
+  padding: 80px 40px;
+  background-color: #ffffff;
+  color: #222;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1 1 500px;
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #0078ff;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.about-text strong {
+  color: #0078ff;
+}
+
+.about-img {
+  flex: 1 1 350px;
+  text-align: center;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.about-img img {
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Dark Mode */
+.App.dark .about {
+  background-color: #1e1e1e;
+  color: #eee;
+}
+
+.App.dark .about-text h2 {
+  color: #90cdf4;
+}
+
+.App.dark .about-text strong {
+  color: #90cdf4;
+}
