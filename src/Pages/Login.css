@@ -1,0 +1,82 @@
+/* src/styles/Login.css */
+
+.login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.login-container h2 {
+  font-size: 1.8rem;
+  color: #0078ff;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form input {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.login-form button {
+  padding: 12px;
+  background-color: #0078ff;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #005ec6;
+}
+
+.toggle-auth {
+  margin-top: 15px;
+  font-size: 0.95rem;
+}
+
+.toggle-auth span {
+  color: #0078ff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+/* Dark Mode */
+.App.dark .login-container {
+  background-color: #1e1e1e;
+  color: #f2f2f2;
+}
+
+.App.dark .login-form input {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #f2f2f2;
+}
+
+.back-home-btn:hover {
+  background-color: #005fd1;
+  transition: background 0.3s;
+}
+

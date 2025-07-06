@@ -17,7 +17,7 @@ function Navbar({ isLoggedIn, profilePic }) {
       {/* Desktop Navbar */}
       <nav className="navbar desktop-only">
         <div className="nav-brand">
-          <Link to="/">Crafty Jay</Link>
+          <Link to="">Crafty Jay</Link>
         </div>
         <ul className="nav-menu">
           <li><a href="#hero"><i className="fas fa-home"></i> Home</a></li>
@@ -43,7 +43,7 @@ function Navbar({ isLoggedIn, profilePic }) {
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <span className="sidebar-brand">Crafty Jay</span>
-          <button onClick={handleToggle}><i className="fas fa-times"></i></button>
+          {/* <button onClick={handleToggle}><i className="fas fa-times"></i></button> */}
         </div>
         <ul className="sidebar-menu">
           <li><a href="#hero" onClick={handleToggle}><i className="fas fa-home"></i> Home</a></li>

@@ -1,0 +1,78 @@
+/* src/styles/Profile.css */
+
+.profile-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.profile-container h2 {
+  margin-bottom: 20px;
+  color: #0078ff;
+}
+
+.profile-section {
+  margin: 20px 0;
+}
+
+.profile-section label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.profile-section input {
+  padding: 10px;
+  width: 80%;
+  max-width: 350px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.profile-section button {
+  padding: 10px 20px;
+  background-color: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.profile-section button:hover {
+  background-color: #005ec6;
+}
+
+.logout-btn {
+  margin-top: 10px;
+  background-color: #ff4d4d;
+}
+
+.logout-btn:hover {
+  background-color: #d63031;
+}
+
+.message {
+  margin-top: 15px;
+  font-weight: bold;
+  color: green;
+}
+
+/* Dark Mode */
+.App.dark .profile-container {
+  background-color: #1f1f1f;
+  color: #f2f2f2;
+}
+
+.App.dark .profile-section input {
+  background-color: #2a2a2a;
+  color: #f2f2f2;
+  border-color: #444;
+}
