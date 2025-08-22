@@ -16,6 +16,7 @@ import Admin from './Pages/Admin';
 import Profile from './Pages/Profile';
 import Gallery from './Components/Gallery';
 import GalleryUpload from './Components/GalleryUpload';
+import Carousel from './Components/Carousel';
 
 // 🔒 Custom Hook to get user from localStorage
 const useAuth = () => {
@@ -54,6 +55,7 @@ function AppContent({ darkMode, setDarkMode }) {
               <About />
               <Projects />
               <Gallery />
+              <Carousel />
               <Contact />
               <Footer />
               <FloatingChat />
