@@ -1,9 +1,6 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './Firebase';
-
 import './App.css';
 
 import Navbar from './Components/Navbar';
@@ -16,15 +13,31 @@ import Contact from './Components/Contact';
 import Footer from './Components/Footer';
 import Login from './Pages/Login';
 import Admin from './Pages/Admin';
-import Profile from './Pages/Profile'; // You’ll build this later
+import Profile from './Pages/Profile';
+import Gallery from './Components/Gallery';
+import GalleryUpload from './Components/GalleryUpload';
 
-function AppContent({ darkMode, setDarkMode, user }) {
+// 🔒 Custom Hook to get user from localStorage
+const useAuth = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('portfolioUser');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  return user;
+};
+
+function AppContent({ darkMode, setDarkMode }) {
   const location = useLocation();
   const isLoginPage = location.pathname === '/login';
+  const user = useAuth();
 
   return (
     <div className={`App ${darkMode ? 'dark' : ''}`}>
-      {/* Show Navbar and Toggle only when not on login page */}
       {!isLoginPage && (
         <>
           <Navbar user={user} />
@@ -40,6 +53,7 @@ function AppContent({ darkMode, setDarkMode, user }) {
               <Hero />
               <About />
               <Projects />
+              <Gallery />
               <Contact />
               <Footer />
               <FloatingChat />
@@ -47,8 +61,12 @@ function AppContent({ darkMode, setDarkMode, user }) {
           }
         />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={user?.email === "alasatisaheedjamal@gmail.com" ? <Admin /> : <Navigate to="/login" />} />
+        <Route
+          path="/admin"
+          element={user?.email === 'alasatisaheedjamal@gmail.com' || user?.email === 'crafty23jay@gmail.com' ? <Admin /> : <Navigate to="/login" />}
+        />
         <Route path="/profile" element={user ? <Profile user={user} /> : <Navigate to="/login" />} />
+        <Route path="/upload-gallery" element={user ? <GalleryUpload /> : <Navigate to="/login" />} />
       </Routes>
     </div>
   );
@@ -56,19 +74,10 @@ function AppContent({ darkMode, setDarkMode, user }) {
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-
-    return () => unsub();
-  }, []);
 
   return (
     <Router>
-      <AppContent darkMode={darkMode} setDarkMode={setDarkMode} user={user} />
+      <AppContent darkMode={darkMode} setDarkMode={setDarkMode} />
     </Router>
   );
 }

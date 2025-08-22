@@ -1,0 +1,50 @@
+/* src/styles/Gallery.css */
+.gallery-section {
+  padding: 60px 20px;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.gallery-section h2 {
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.gallery-track {
+  display: flex;
+  animation: slideTrain 30s linear infinite;
+  width: max-content;
+}
+
+.gallery-slide {
+  min-width: 300px;
+  margin-right: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes slideTrain {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Dark mode */
+.App.dark .gallery-section {
+  background-color: #1e1e1e;
+}
+
+.App.dark .gallery-section h2 {
+  color: #f2f2f2;
+}

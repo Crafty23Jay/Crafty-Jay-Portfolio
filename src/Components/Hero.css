@@ -18,6 +18,13 @@
   animation: slideUp 1.7s ease-in;
 }
 
+.logo-img {
+  width: 150px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 20px;
+}
+
 .hero-title {
   font-size: 3.5rem;
   margin-bottom: 10px;

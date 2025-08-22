@@ -31,7 +31,9 @@ function Contact() {
           Feel free to message me if you need my service, have questions, or just want to connect. I’m always happy to hear from you!
         </p>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" 
+            action="https://formspree.io/f/xwpbdkzq"
+            method="POST" onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"

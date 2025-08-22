@@ -10,12 +10,12 @@ function FloatingChat() {
         <div className="rectangle">Online Chat</div>
 
         <div className="chat-container">
-          <div className={`chat-option whatsapp ${open ? 'show' : ''}`}>
+          <div className={`chat-option whatsapp ${open ? 'show' : ''}`} >
             <a href="https://wa.me/+2349039209644" target="_blank" rel="noreferrer">
               <i className="fab fa-whatsapp"></i>
             </a>
           </div>
-          <div className={`chat-option gmail ${open ? 'show' : ''}`}>
+          <div className={`chat-option gmail ${open ? 'show' : ''}`} >
             <a href="mailto:alasatisaheedjamal.com">
               <i className="far fa-envelope"></i>
             </a>

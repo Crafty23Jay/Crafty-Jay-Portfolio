@@ -1,82 +1,112 @@
-/* src/styles/Login.css */
+/* src/Pages/Login.css */
 
 .login-container {
-  max-width: 400px;
-  margin: 80px auto;
-  padding: 25px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  transition: background 0.3s;
-}
-
-.login-container h2 {
-  font-size: 1.8rem;
-  color: #0078ff;
-  margin-bottom: 20px;
-}
-
-.login-form {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #2c3e50, #3498db);
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.login-form input {
-  padding: 12px;
-  font-size: 1rem;
+.login-box {
+  background-color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  animation: fadeInUp 0.7s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-box h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  background: #f0f0f0;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
 }
 
-.login-form button {
-  padding: 12px;
-  background-color: #0078ff;
-  color: white;
+.input-group svg {
+  margin-right: 10px;
+  color: #555;
+}
+
+.input-group input {
   border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
   font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  padding: 0.7rem;
+  border: none;
   border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
-.login-form button:hover {
-  background-color: #005ec6;
+button:disabled {
+  background-color: #7f8c8d;
+  cursor: not-allowed;
 }
 
-.toggle-auth {
-  margin-top: 15px;
-  font-size: 0.95rem;
+button:hover:not(:disabled) {
+  background-color: #2980b9;
 }
 
-.toggle-auth span {
-  color: #0078ff;
-  font-weight: bold;
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-.error {
+.error-msg {
   color: red;
   font-size: 0.9rem;
-  margin-top: 8px;
+  margin-bottom: 0.7rem;
+  text-align: center;
 }
 
-/* Dark Mode */
-.App.dark .login-container {
-  background-color: #1e1e1e;
-  color: #f2f2f2;
+.spinner {
+  animation: spin 1s linear infinite;
+  font-size: 1.2rem;
 }
 
-.App.dark .login-form input {
-  background-color: #2a2a2a;
-  border-color: #444;
-  color: #f2f2f2;
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.back-home-btn:hover {
-  background-color: #005fd1;
-  transition: background 0.3s;
+.back-home-link {
+  display: block;
+  margin-top: 15px;
+  color: #444;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.back-home-link:hover {
+  color: #007bff;
 }
 

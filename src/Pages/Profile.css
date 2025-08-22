@@ -1,78 +1,181 @@
-/* src/styles/Profile.css */
-
+/* src/Pages/Profile.css */
 .profile-container {
-  max-width: 500px;
-  margin: 80px auto;
-  padding: 25px;
-  border-radius: 10px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.profile-header {
   text-align: center;
-  transition: background 0.3s;
+  margin-bottom: 30px;
 }
 
-.profile-container h2 {
-  margin-bottom: 20px;
-  color: #0078ff;
-}
-
-.profile-section {
-  margin: 20px 0;
-}
-
-.profile-section label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.profile-section input {
-  padding: 10px;
-  width: 80%;
-  max-width: 350px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #0078ff;
   margin-bottom: 10px;
 }
 
-.profile-section button {
-  padding: 10px 20px;
-  background-color: #0078ff;
+.logout-btn {
+  background: #ff4d4f;
   color: white;
+  padding: 8px 18px;
   border: none;
-  border-radius: 8px;
+  border-radius: 25px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.profile-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.profile-tabs button {
+  background: none;
+  border: 2px solid #0078ff;
+  color: #0078ff;
+  padding: 10px 18px;
+  border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.profile-section button:hover {
-  background-color: #005ec6;
+.profile-tabs button:hover,
+.profile-tabs .active {
+  background: #0078ff;
+  color: white;
 }
 
-.logout-btn {
-  margin-top: 10px;
-  background-color: #ff4d4d;
+.profile-content {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.logout-btn:hover {
-  background-color: #d63031;
-}
-
-.message {
-  margin-top: 15px;
-  font-weight: bold;
-  color: green;
-}
-
-/* Dark Mode */
+/* Dark mode */
 .App.dark .profile-container {
-  background-color: #1f1f1f;
   color: #f2f2f2;
 }
 
-.App.dark .profile-section input {
-  background-color: #2a2a2a;
+.App.dark .profile-content {
+  background-color: #222;
+}
+
+.App.dark .profile-tabs button {/* src/Pages/Profile.css */
+.profile-page {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.cover-photo {
+  background: linear-gradient(120deg, #011e6e, #0078ff);
+  color: white;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+.logout-button {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-body {
+  display: flex;
+  padding: 1rem;
+}
+
+.profile-sidebar {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.profile-sidebar button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text);
+  transition: background 0.2s ease;
+}
+
+.profile-sidebar button.active,
+.profile-sidebar button:hover {
+  background: #f0f0f0;
+  color: #0078ff;
+}
+
+.profile-content {
+  flex-grow: 1;
+  background: var(--content-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode variables (optional, if you're toggling them globally) */
+.App.dark {
+  --bg: #1e1e1e;
+  --text: #ffffff;
+  --content-bg: #2c2c2c;
+}
+
+.App {
+  --bg: #f5f5f5;
+  --text: #222;
+  --content-bg: #fff;
+}
+
+  border-color: #f2f2f2;
   color: #f2f2f2;
-  border-color: #444;
+}
+
+.App.dark .profile-tabs .active {
+  background-color: #0078ff;
+  color: white;
 }

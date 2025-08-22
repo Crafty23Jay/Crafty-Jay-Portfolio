@@ -1,98 +1,83 @@
-// src/Pages/Login.jsx
-import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-import { auth } from '../Firebase';
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-} from 'firebase/auth';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
+import axios from 'axios';
+import Lottie from 'lottie-react';
+// import loginAnimation from '../assets/login-animation.json';
+// import loadingSpinner from '../assets/loading-spinner.json';
 
-function Login() {
-  const [isRegistering, setIsRegistering] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMsg, setErrorMsg] = useState('');
-
+const Login = () => {
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleAuth = async (e) => {
+  const handleChange = (e) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMsg('');
+    setError('');
+    setLoading(true);
 
     try {
-      let userCredential;
+      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const { token, user } = response.data;
 
-      if (isRegistering) {
-        userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      } else {
-        userCredential = await signInWithEmailAndPassword(auth, email, password);
-      }
+      // Save to localStorage
+      localStorage.setItem('portfolioToken', token);
+      localStorage.setItem('portfolioUser', JSON.stringify(user));
 
-      const user = userCredential.user;
-
-      // Redirect after login
-      if (user.email === "alasatisaheedjamal@gmail.com") {
-        navigate('/profile'); // You can also use /admin if preferred
-      } else {
-        navigate('/'); // Back to homepage
-      }
-    } catch (error) {
-      console.error("Auth Error:", error.message);
-      setErrorMsg(error.message);
+      navigate('/profile');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Login failed');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="login-container">
-      <h2>{isRegistering ? 'Create Account' : 'Admin Login'}</h2>
+    <div className="login-page">
+      <div className="login-container">
+        <div className="login-left">
+          {/* <Lottie animationData={loginAnimation} loop /> */}
+        </div>
 
-      <form className="login-form" onSubmit={handleAuth}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">
-          {isRegistering ? 'Register' : 'Login'}
-        </button>
-        {errorMsg && <p className="error">{errorMsg}</p>}
-      </form>
+        <div className="login-right">
+          <h2>Welcome Back, Admin</h2>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
 
-      <p className="toggle-auth">
-        {isRegistering
-          ? 'Already have an account? '
-          : "Don't have an account? "}
-        <span onClick={() => setIsRegistering(!isRegistering)}>
-          {isRegistering ? 'Login' : 'Register'}
-        </span>
-      </p>
+            <button type="submit" disabled={loading}>
+              {/* {loading ? <Lottie animationData={loadingSpinner} style={{ height: 40 }} /> : 'Login'} */}
+              Login
+            </button>
 
-      {/* ✅ Back to Home button */}
-      <button
-        onClick={() => navigate('/')}
-        className="back-home-btn"
-        style={{
-          marginTop: '20px',
-          padding: '10px 20px',
-          background: '#0078ff',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer'
-        }}
-      >
-        ← Back to Home
-      </button>
+            {error && <p className="error">{error}</p>}
+          </form>
+
+          {/* Back to Home link */}
+          <Link to="/" className="back-home-link">← Back to Home</Link>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default Login;
